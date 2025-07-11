@@ -9,9 +9,9 @@ import java.sql.Statement;
  * Database utility class for managing database connections and initialization
  */
 public class DatabaseUtil {
-    private static final String URL = "jdbc:mysql://localhost:3306/turf_management";
+    private static final String URL = "jdbc:mariadb://localhost:3306/turf_management?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "password"; // Change this to your MySQL password
+    private static final String PASSWORD = "Koinpark@123"; // MariaDB password
     
     private static Connection connection = null;
 
@@ -22,13 +22,13 @@ public class DatabaseUtil {
     public static Connection getConnection() {
         try {
             if (connection == null || connection.isClosed()) {
-                // Load MySQL JDBC driver
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                // Load MariaDB JDBC driver
+                Class.forName("org.mariadb.jdbc.Driver");
                 connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
                 System.out.println("Database connected successfully!");
             }
         } catch (ClassNotFoundException e) {
-            System.err.println("MySQL JDBC Driver not found: " + e.getMessage());
+            System.err.println("MariaDB JDBC Driver not found: " + e.getMessage());
             e.printStackTrace();
         } catch (SQLException e) {
             System.err.println("Database connection failed: " + e.getMessage());

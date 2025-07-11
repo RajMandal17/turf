@@ -10,32 +10,32 @@ java -version
 javac -version
 ```
 
-✅ **MySQL Server Running**
+✅ **MariaDB Server Running**
 ```bash
-# Check if MySQL is running
-sudo systemctl status mysql
+# Check if MariaDB is running
+sudo systemctl status mariadb
 # Or
 mysql -u root -p -e "SELECT 1"
 ```
 
 ## Quick Start (5 Minutes)
 
-### Step 1: Download MySQL JDBC Driver
+### Step 1: Download MariaDB JDBC Driver
 ```bash
 cd lib
-wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.33/mysql-connector-java-8.0.33.jar
+wget https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.1.4/mariadb-java-client-3.1.4.jar
 cd ..
 ```
 
 ### Step 2: Setup Database
 ```bash
-# Login to MySQL and run the setup
+# Login to MariaDB and run the setup
 mysql -u root -p < database_setup.sql
 ```
 
 ### Step 3: Configure Database Connection
 Edit `src/com/turf/util/DatabaseUtil.java` if needed:
-- Line 11: Update MySQL password
+- Line 11: Update MariaDB password
 - Line 10: Update username if not 'root'
 - Line 9: Update database URL if different
 
@@ -65,17 +65,17 @@ Edit `src/com/turf/util/DatabaseUtil.java` if needed:
 
 ## Troubleshooting
 
-### MySQL Connection Issues:
+### MariaDB Connection Issues:
 ```bash
-# Check MySQL service
-sudo systemctl restart mysql
+# Check MariaDB service
+sudo systemctl restart mariadb
 
 # Test connection
 mysql -u root -p -e "SHOW DATABASES;"
 ```
 
 ### JDBC Driver Issues:
-- Ensure `mysql-connector-java-*.jar` is in the `lib/` directory
+- Ensure `mariadb-java-client-*.jar` is in the `lib/` directory
 - Check the JAR file name in compile.sh and run.sh
 
 ### Compilation Issues:

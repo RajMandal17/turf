@@ -1,5 +1,5 @@
--- Turf Management System Database Setup
--- Run this script in MySQL to set up the database manually if needed
+-- Turf Management System Database Setup for MariaDB
+-- Run this script in MariaDB to set up the database manually if needed
 
 CREATE DATABASE IF NOT EXISTS turf_management;
 USE turf_management;
